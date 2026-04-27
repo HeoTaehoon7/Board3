@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+Windows -> Preferences -> 검색:xml
+  -> Xml(Wild Web Developer) -> 오른쪽 탭에서
+   체크 Download ML Resource .... -> Apply 버튼 클릭
+  
+namespace="com.green.user.mapper.UserMapper" : interface 위치 
+-->
+<mapper namespace="com.green.users.mapper.UserMapper">
+	
+	<!-- 메뉴 목록조회 -->
+	<select id="getMenuList"
+	        resultType="com.green.users.dto.UserDTO">
+			
+	
+	 	
+	</select>
+	
+	
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
