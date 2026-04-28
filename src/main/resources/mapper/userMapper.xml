@@ -26,6 +26,21 @@
 	
 	</insert>
 	
+	<!-- 사용자 목록 -->
+	<select id="getUserList">
+	
+	SELECT
+	    USERID,
+	    USERNAME,
+	    EMAIL,
+	    UPOINT,
+	    TO_CHAR( REGDATE, 'YYYY-MM-DD') REGDATE
+	FROM
+	    TUSER
+	ORDER  BY  USERID ASC
+	
+	
+	</select>
 	
   
 </mapper>

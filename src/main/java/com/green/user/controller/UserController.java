@@ -1,5 +1,7 @@
 package com.green.user.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,13 +44,17 @@ public class UserController {
 	
 	// /Users/List
 	@RequestMapping("/List")
-	public  String  list() {
+	public  ModelAndView  list() {
 		
-		return "users/list";
+		// db 에서 사용자 목록을 조회
+		List<UserDto> userList = userMapper.getUserList();
+		
+		ModelAndView  mv  =  new ModelAndView();
+		mv.setViewName("users/list");
+		mv.addObject("userList", userList);
+		
+		return mv;
 	}
-	
-	
-	
 	
 }
 
