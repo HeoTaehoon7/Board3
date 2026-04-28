@@ -11,7 +11,8 @@ public class UserDto {
 	
 	//Getter / Setter
 	public UserDto() {}
-	public UserDto(String userid, String passwd, String username, String email, int upoint, String regdate) {
+	public UserDto(String userid, String passwd, String username, 
+			String email, int upoint, String regdate) {
 		this.userid = userid;
 		this.passwd = passwd;
 		this.username = username;
@@ -19,6 +20,8 @@ public class UserDto {
 		this.upoint = upoint;
 		this.regdate = regdate;
 	}
+	
+	//Getter / Setter
 	public String getUserid() {
 		return userid;
 	}
