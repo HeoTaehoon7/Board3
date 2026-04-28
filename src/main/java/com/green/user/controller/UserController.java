@@ -56,7 +56,64 @@ public class UserController {
 		return mv;
 	}
 	
+	// http://localhost:8080/Users/Delete?userid=SKY
+	@RequestMapping("/Delete")
+	public  ModelAndView  delete( UserDto userDto ) {
+		
+		// 넘겨받은 자료를 출력
+		System.out.println( "userDto2:" +  userDto );
+		
+		// db 의 자료를 삭재
+		userMapper.deleteUser( userDto );
+		
+		// 목록으로 이동
+		ModelAndView  mv  =  new ModelAndView();
+		mv.setViewName("redirect:/Users/List");
+		return        mv;
+	}
+	
+	// http://localhost:8080/Users/UpdateForm?userid=sea
+	@RequestMapping("/UpdateForm")
+	public  ModelAndView  updateForm( UserDto  userDto  ) {
+		// 넘어온 userDto 정보
+		System.out.println( "넘어온 userDto : " + userDto );
+		
+		// 수정을 위해 db 에서 조회한 정보
+		UserDto  user =  userMapper.getUser( userDto );
+		System.out.println( "조회된 userDto : " + user );
+		
+		ModelAndView  mv   =  new ModelAndView();
+		mv.setViewName("users/update");
+		mv.addObject("user", user);
+		return  mv;
+		
+	}
+	
+	// http://localhost:8080/Users/Update
+	   // userid=sea&passwd=12345&username=%EB%B0%94%EB%8B%A4&email=sea%40green.com
+	@RequestMapping("/Update")
+	public  ModelAndView  update( UserDto  userDto ) {
+		
+		userMapper.updateUser( userDto );
+		
+		ModelAndView  mv  =  new ModelAndView();
+		mv.setViewName("redirect:/Users/List");
+		return  mv;
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
