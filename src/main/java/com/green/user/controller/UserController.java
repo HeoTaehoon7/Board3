@@ -8,16 +8,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
+import com.green.BoardApplication;
+import com.green.controller.HomeController;
 import com.green.user.dto.UserDto;
 import com.green.user.mapper.UserMapper;
 
 @Controller
 @RequestMapping("/Users")
 public class UserController {
+
+    private final HomeController homeController;
+
+    private final BoardApplication boardApplication;
 	
 	@Autowired
 	private  UserMapper  userMapper;
+
+    UserController(BoardApplication boardApplication, HomeController homeController) {
+        this.boardApplication = boardApplication;
+        this.homeController = homeController;
+    }
 	
 	// /Users/WriteForm() 
 	@RequestMapping("/WriteForm")
@@ -117,6 +127,19 @@ public class UserController {
 	    return   user;
 		
 	}
+	
+	// /Users/DupCheckWindow
+	@GetMapping("/DupCheckWindow")
+	public  ModelAndView   dupCheckWindow(   ) {
+				
+		
+		
+		ModelAndView  mv  =  new ModelAndView();
+		mv.setViewName("users/idcheck");
+		mv.addObject("userid", "aaa");		
+		return mv;
+	}
+	
 	
 	
 }
